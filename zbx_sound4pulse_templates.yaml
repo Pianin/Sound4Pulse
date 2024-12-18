@@ -1,0 +1,403 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-12-18T18:54:39Z'
+  groups:
+    - uuid: 5686084249964d9b963cff97513f4296
+      name: Sound4Pulse
+  templates:
+    - uuid: 5e9e4a790cc34a8cae9f956ef938108f
+      template: 'Sound4Pulse SNMP'
+      name: 'Sound4Pulse SNMP'
+      templates:
+        - name: 'Generic SNMP'
+      groups:
+        - name: Sound4Pulse
+      items:
+        - uuid: 52c476928b8f4a1a92d7af0cbb12ef40
+          name: 'S4 Server AudioIP ver'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.7.0
+          key: s4server.audioipver
+          delay: 15m
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: 'The SOUND4 AudioIP plugin''s version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: 7d050a2673874bf8b83a6f9661ceac7f
+          name: 'S4 Server Board temp'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.41.0
+          key: s4server.boardtemp
+          value_type: FLOAT
+          units: °C
+          description: 'The main board Temperature (Celsius)'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: board
+        - uuid: e245896a4f884977822d261b7f921fb4
+          name: 'S4 Server CPU temp'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.40.0
+          key: s4server.cputemp
+          value_type: FLOAT
+          units: °C
+          description: 'The main CPU Temperature Celsius'
+          preprocessing:
+            - type: MULTIPLIER
+              parameters:
+                - '0.001'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: cpu
+        - uuid: 3d67946b4b6c4ddea63771c76b66a9be
+          name: 'S4 Server date'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.50.0
+          key: s4server.date
+          delay: 30m
+          units: unixtime
+          description: 'The current server date'
+          preprocessing:
+            - type: STR_REPLACE
+              parameters:
+                - '`'
+                - ''
+            - type: JAVASCRIPT
+              parameters:
+                - |
+                  const date = new Date(value);
+                  const timestampSeconds = Math.floor(date.getTime() / 1000);
+                  return(timestampSeconds)
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: NTP
+          triggers:
+            - uuid: 286ad87685df45c7b1191c9dd1915a40
+              expression: 'fuzzytime(/Sound4Pulse SNMP/s4server.date,{$SYSTEM.FUZZYTIME.MAX})=0'
+              name: 'System time is out of sync'
+              status: DISABLED
+              priority: WARNING
+        - uuid: 158d775c33f841dfb37d042392c1f15f
+          name: 'S4 Server Driver PCI Express'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.6.0
+          key: s4server.driverexp
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 PCI Express Driver version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: c18ca86ef2af4ca6ad7ab542c6c4090f
+          name: 'S4 Server Driver PCI'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.5.0
+          key: s4server.driverpci
+          delay: 15m
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: 'The SOUND4 PCI Driver version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: f5d78d4b3e7e48479192783005cc2e42
+          name: 'S4 Server Fan 1 status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.30.0
+          key: s4server.fan1
+          units: rps
+          description: 'The Fan 1 rotating speed (rps)'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: fan
+        - uuid: 3e09324e8a87489faff77179e7f460e7
+          name: 'S4 Server Fan 2 status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.31.0
+          key: s4server.fan2
+          units: rps
+          description: 'The Fan 2 rotating speed (rps)'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: fan
+        - uuid: 8297ff5854014081981a00cdc1eaa560
+          name: 'S4 Server FullRDS ver'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.8.0
+          key: s4server.fullrdsver
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 FullRDS plugin''s version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: b4f904a24ce74227bb8505cf4a9b8999
+          name: 'S4 Server IO temp'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.42.0
+          key: s4server.iotemp
+          value_type: FLOAT
+          units: °C
+          description: 'The IO board Temperature (Celsius)'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: 'IO board'
+        - uuid: 9da3c9ec6085497fb3f976607bcf99ca
+          name: 'S4 Server NTP'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.51.0
+          key: s4server.ntp
+          delay: 15m
+          description: 'The NTP status'
+          valuemap:
+            name: 'NTP Status'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: NTP
+        - uuid: dd4b7013908e4e5eaf6f37b0586bdc2d
+          name: 'S4 Server NTP source'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.52.0
+          key: s4server.ntpsource
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The NTP server used'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: NTP
+        - uuid: 971c95e2b8644347b2b179f6f12c7735
+          name: 'S4 Server OS family'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.3.0
+          key: s4server.osfamily
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 server operating system''s family'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: c191d1e28cc54c8bb2dd5b2ea6465abd
+          name: 'S4 Server OS version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.4.0
+          key: s4server.osversion
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 server operating system''s version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: 4b1adcaefa03482dbea98cadbc1c5fff
+          name: 'S4 Server Power internal status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.22.0
+          key: s4server.powerinternal
+          description: 'The Internal Power Supply status'
+          valuemap:
+            name: 'The Internal Power Supply status'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: 'internal power supply'
+          triggers:
+            - uuid: a2f2e9485b6c416f85dfefb3bf56be5d
+              expression: 'last(/Sound4Pulse SNMP/s4server.powerinternal)=1'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Sound4Pulse SNMP/s4server.powerinternal)=0'
+              name: 'S4 Server Power internal status is ERROR'
+              priority: HIGH
+        - uuid: 1c23a90fffc741f78283e73d72f9cd27
+          name: 'S4 Server PSU 1 status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.20.0
+          key: s4server.psu1
+          description: 'The Power Supply 1 status'
+          valuemap:
+            name: 'PSU Status'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: psu
+          triggers:
+            - uuid: a62072fdfe414d1d92d7b6b6664e3597
+              expression: 'last(/Sound4Pulse SNMP/s4server.psu1)=0'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Sound4Pulse SNMP/s4server.psu1)=1'
+              name: 'S4 Server PSU 1 status is INVALID'
+              priority: HIGH
+        - uuid: 4c5ce2df841e4253a228e47c45b57ff9
+          name: 'S4 Server PSU 2 status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.21.0
+          key: s4server.psu2
+          description: 'The Power Supply 2 status'
+          valuemap:
+            name: 'PSU Status'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+            - tag: status
+              value: psu
+          triggers:
+            - uuid: dafcd2d273d346a7a2726e14a92ad833
+              expression: 'last(/Sound4Pulse SNMP/s4server.psu2)=0'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Sound4Pulse SNMP/s4server.psu2)=1'
+              name: 'S4 Server PSU 2 status is INVALID'
+              priority: HIGH
+        - uuid: d8fe93195a294ed189982d453457146d
+          name: 'S4 Server state'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.1.0
+          key: s4server.state
+          description: 'The SOUND4 server''s global state'
+          valuemap:
+            name: 'Global state'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: Sound4
+          triggers:
+            - uuid: 0a89e4a7c95f49138508973a9533bb25
+              expression: 'last(/Sound4Pulse SNMP/s4server.state)=5'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Sound4Pulse SNMP/s4server.state)<>5'
+              name: 'S4 Server state is BROKEN'
+              priority: HIGH
+            - uuid: 294ca216df1e4b2f801632b39e4d8af7
+              expression: 'last(/Sound4Pulse SNMP/s4server.state)<>4'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Sound4Pulse SNMP/s4server.state)=4'
+              name: 'S4 Server state is NOT OK'
+              priority: WARNING
+        - uuid: aee859a238ee482e96403e75143c5e47
+          name: 'S4 Server Stream ver'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.9.0
+          key: s4server.streamver
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 Stream plugin''s version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: 924c261efcae445ba914fcccf61d55d8
+          name: 'S4 Server version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.2.0
+          key: s4server.version
+          delay: 15m
+          trends: '0'
+          value_type: TEXT
+          description: 'The SOUND4 server version'
+          tags:
+            - tag: component
+              value: Sound4
+        - uuid: ee67cbafff814958ab43c53b6d21616b
+          name: 'S4 Server Watermark ver'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.1.10.0
+          key: s4server.watermarkver
+          delay: 15m
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: 'The SOUND4 Watermarking plugin''s version'
+          tags:
+            - tag: component
+              value: Sound4
+      macros:
+        - macro: '{$SYSTEM.FUZZYTIME.MAX}'
+          value: '60'
+      valuemaps:
+        - uuid: 74513318137542a2b6dac5486c9d86e0
+          name: 'Global state'
+          mappings:
+            - value: '0'
+              newvalue: unknown
+            - value: '1'
+              newvalue: new
+            - value: '2'
+              newvalue: starting
+            - value: '3'
+              newvalue: loading
+            - value: '4'
+              newvalue: ok
+            - value: '5'
+              newvalue: broken
+            - value: '6'
+              newvalue: nodata
+            - value: '7'
+              newvalue: upgrading
+        - uuid: b5f37d1a276e40c5ac31ed65f474a72f
+          name: 'NTP Status'
+          mappings:
+            - value: '0'
+              newvalue: invalid
+            - value: '1'
+              newvalue: valid
+        - uuid: 7f0cf119c3f24d82a16d72ffd2fd2098
+          name: 'PSU Status'
+          mappings:
+            - value: '0'
+              newvalue: invalid
+            - value: '1'
+              newvalue: valid
+        - uuid: cc325d96a5e04283bc8bf2829bfde1f8
+          name: 'The Internal Power Supply status'
+          mappings:
+            - value: '0'
+              newvalue: noerror
+            - value: '1'
+              newvalue: error
