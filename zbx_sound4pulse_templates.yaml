@@ -1,6 +1,6 @@
 zabbix_export:
   version: '6.0'
-  date: '2024-12-18T18:54:39Z'
+  date: '2024-12-19T21:16:00Z'
   groups:
     - uuid: 5686084249964d9b963cff97513f4296
       name: Sound4Pulse
@@ -13,6 +13,475 @@ zabbix_export:
       groups:
         - name: Sound4Pulse
       items:
+        - uuid: e7779a18db704b0db416a46969f8c4ac
+          name: 'The card eth2 kind'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.31.1
+          key: s4card.eth2kind
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet2 kind'
+          tags:
+            - tag: component
+              value: 's4card ethernet2'
+        - uuid: e86deef0abd4429d9f5731c9d48da52c
+          name: 'The card eth2 mac'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.33.1
+          key: s4card.eth2mac
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet2 MAC address'
+          tags:
+            - tag: component
+              value: 's4card ethernet2'
+        - uuid: a8b2dadc427a418092ea3bcbc35aaff6
+          name: 'The card''s eth2 state'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.30.1
+          key: s4card.eth2state
+          description: 'The card''s Ethernet2 global state'
+          valuemap:
+            name: 'The card''s global state'
+          tags:
+            - tag: component
+              value: 's4card ethernet2'
+        - uuid: 1d68d9628f7546469f51f074cbe465b7
+          name: 'The card eth2 version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.32.1
+          key: s4card.eth2version
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet2 version'
+          tags:
+            - tag: component
+              value: 's4card ethernet2'
+        - uuid: 326f58fe66784c839b134be773c6afa6
+          name: 'The card eth kind'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.21.1
+          key: s4card.ethkind
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet kind'
+          tags:
+            - tag: component
+              value: 's4card ethernet'
+        - uuid: a115c17508dc4688a5f363ae757b5bf6
+          name: 'The card eth mac'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.23.1
+          key: s4card.ethmac
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet MAC address'
+          tags:
+            - tag: component
+              value: 's4card ethernet'
+        - uuid: 563330a39c9c4c36bc2f6261d98fc607
+          name: 'The card''s eth state'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.20.1
+          key: s4card.ethstate
+          description: 'The card''s Ethernet global state'
+          valuemap:
+            name: 'The card''s global state'
+          tags:
+            - tag: component
+              value: 's4card ethernet'
+        - uuid: bd7473866bb546eeb9b2a072adfc16bd
+          name: 'The card eth version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.22.1
+          key: s4card.ethversion
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s Ethernet version'
+          tags:
+            - tag: component
+              value: 's4card ethernet'
+        - uuid: 2df3d7de168a492e8c0e3ff930751e6e
+          name: 'The card kind'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.4.1
+          key: s4card.kind
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card kind'
+          tags:
+            - tag: component
+              value: s4card
+        - uuid: 8b11814b74b349bb962a92b362405642
+          name: 'The card proc channels'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.43.1
+          key: s4card.procchannels
+          delay: 60m
+          description: 'The process''s channel count'
+          tags:
+            - tag: component
+              value: 's4card process'
+        - uuid: 282722fe9535419ba0da13250c4eb52a
+          name: 'The card proc kind'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.41.1
+          key: s4card.prockind
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s process kind'
+          tags:
+            - tag: component
+              value: 's4card process'
+        - uuid: eb357fa510ce4d2aad505debc41e985f
+          name: 'The card''s proc state'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.40.1
+          key: s4card.procstate
+          description: 'The card''s process global state'
+          valuemap:
+            name: 'The card''s global state'
+          tags:
+            - tag: component
+              value: 's4card process'
+        - uuid: 6dc7752eab2e44b1bb47c83515583154
+          name: 'The card proc version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.42.1
+          key: s4card.procversion
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card''s process version'
+          tags:
+            - tag: component
+              value: 's4card process'
+        - uuid: b1eeada787034c9c9c4396ee621f0e6f
+          name: 'The card serial'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.3.1
+          key: s4card.serial
+          delay: 60m
+          description: 'The card serial number'
+          tags:
+            - tag: component
+              value: s4card
+        - uuid: 02c2c5d2741d4a67b3d679956496a53a
+          name: 'The card''s global state'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.2.1
+          key: s4card.state
+          description: 'The card''s global state'
+          valuemap:
+            name: 'The card''s global state'
+          tags:
+            - tag: component
+              value: s4card
+        - uuid: 8559036387724247a57b828f1b897e29
+          name: 'The card version'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.2.1.5.1
+          key: s4card.version
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The card version'
+          tags:
+            - tag: component
+              value: s4card
+        - uuid: c5f318ff7ed54fb0b52934cf8880813b
+          name: 'The Ethernet IP DHCP mode'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.4.1
+          key: s4ethernet.dhcp
+          delay: 60m
+          description: 'The Ethernet IP DHCP mode'
+          valuemap:
+            name: 'DHCP mode'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: 2b447e73fe584246b4ff633daa69f56b
+          name: 'The Ethernet IP hostname'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.2.1
+          key: s4ethernet.hostname
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet IP hostname'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: ad9d71f5dd1e4857a67e6d021d09c8c9
+          name: 'The Ethernet IP address'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.5.1
+          key: s4ethernet.ipaddress
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet IP address'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: 8c50891a81a7409ead21c58fa8ccb122
+          name: 'The Ethernet public IP address when available'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.6.1
+          key: s4ethernet.ipaddresspub
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet public IP address when available'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: 4bf922e0b9f345d794c17e0df0d14d84
+          name: 'The Ethernet IP link status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.3.1
+          key: s4ethernet.linkstatus
+          description: 'The Ethernet IP connection status'
+          valuemap:
+            name: 'Ethernet link status'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: 052c51b429c84c2f9500633867d526e6
+          name: 'The Ethernet IP connection status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.20.1.1.1.1
+          key: s4ethernet.status
+          description: 'The Ethernet IP connection status'
+          valuemap:
+            name: 'Ethernet IP connection status'
+          tags:
+            - tag: component
+              value: s4ethernet
+        - uuid: a0b7eff456964e17abdaad104eb44c36
+          name: 'The Ethernet2 IP DHCP mode'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.4.1
+          key: s4ethernet2.dhcp
+          delay: 60m
+          description: 'The Ethernet2 IP DHCP mode'
+          valuemap:
+            name: 'DHCP mode'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: 6d25cfb45b234e4f8e86cf3617ba9f63
+          name: 'The Ethernet2 IP hostname'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.2.1
+          key: s4ethernet2.hostname
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet2 IP hostname'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: 3bf2352f5be04dffbe920c933a015b26
+          name: 'The Ethernet2 IP address'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.5.1
+          key: s4ethernet2.ipaddress
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet2 IP address'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: 883d09a5538e4921aba9badde36d627c
+          name: 'The Ethernet2 public IP address when available'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.6.1
+          key: s4ethernet2.ipaddresspub
+          delay: 60m
+          trends: '0'
+          value_type: TEXT
+          description: 'The Ethernet2 public IP address when available'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: de66b02a6b6b454c83f44ae4ec6673ad
+          name: 'The Ethernet2 IP link status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.3.1
+          key: s4ethernet2.linkstatus
+          description: 'The Ethernet2 IP connection status'
+          valuemap:
+            name: 'Ethernet link status'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: f546149bc8ae4af586e80127b5dfe493
+          name: 'The Ethernet2 IP connection status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.21.1.1.1.1
+          key: s4ethernet2.status
+          description: 'The Ethernet2 IP connection status'
+          valuemap:
+            name: 'Ethernet IP connection status'
+          tags:
+            - tag: component
+              value: s4ethernet2
+        - uuid: 34e34de08c1840f08ad22990a8f92e31
+          name: 'The AES input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.2.1
+          key: s4procfm.aes
+          description: 'The AES input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: d761c06638e047ddaa388387b9f52964
+          name: 'The AES AUX input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.9.1
+          key: s4procfm.aesaux
+          description: 'The AES Aux input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: df172335ce844e1d9f9f978ee2ac4646
+          name: 'The Analog input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.1.1
+          key: s4procfm.ana
+          description: 'The Analog input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 78be44fc89894bf284d76c3084d06d76
+          name: 'The Analog Aux input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.8.1
+          key: s4procfm.anaaux
+          description: 'The Analog Aux input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 0bba4ab347b44311b6b01320eb4bb373
+          name: 'The current input (in backup/priority mode)'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.5.1
+          key: s4procfm.input
+          description: 'The current input (in backup/priority mode)'
+          valuemap:
+            name: 'Curent input'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: ad4965eee1ea47e789dbe2e724438492
+          name: 'The IP input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.4.1
+          key: s4procfm.ip
+          description: 'The IP input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: f89f242639d6452d9d934be5f784fe26
+          name: 'The IP2 input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.7.1
+          key: s4procfm.ip2
+          description: 'The IP2 input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: ec47efd66fda45a79573f617ba3fa5f0
+          name: 'The LAN input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.11.1
+          key: s4procfm.lan
+          description: 'The LAN input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 931f83a7a5f143bca110c32f22b8bc49
+          name: 'The LAN2 input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.12.1
+          key: s4procfm.lan2
+          description: 'The LAN2 input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 3fdc29c7a3ec4502b686768043bed90e
+          name: 'The MPX normalized power'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.6.1
+          key: s4procfm.mpxpower
+          value_type: FLOAT
+          units: dBr
+          description: 'The MPX normalized power in dBr'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: bf36056460614ca88fb2c6f99d0aaf08
+          name: 'The PCI input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.3.1
+          key: s4procfm.pci
+          description: 'The PCI input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 21b64435b60543ab9fb4f5b6b26af0cf
+          name: 'The PCI2 input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.10.1
+          key: s4procfm.pci2
+          description: 'The PCI2 input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
+        - uuid: 2cee7c5592764379af47a86b10ca9220
+          name: 'The PCI3 input status'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.29932.2.10.10.1.1.13.1
+          key: s4procfm.pci3
+          description: 'The PCI3 input is OK'
+          valuemap:
+            name: 'Input status'
+          tags:
+            - tag: component
+              value: s4procfm
         - uuid: 52c476928b8f4a1a92d7af0cbb12ef40
           name: 'S4 Server AudioIP ver'
           type: SNMP_AGENT
@@ -78,7 +547,9 @@ zabbix_export:
                 - |
                   const date = new Date(value);
                   const timestampSeconds = Math.floor(date.getTime() / 1000);
-                  return(timestampSeconds)
+                  const utcoffset = '{$UTCOFFSET}';
+                  const offsetseconds = ((utcoffset)*3600);
+                  return (timestampSeconds-(offsetseconds))
           tags:
             - tag: component
               value: health
@@ -90,7 +561,6 @@ zabbix_export:
             - uuid: 286ad87685df45c7b1191c9dd1915a40
               expression: 'fuzzytime(/Sound4Pulse SNMP/s4server.date,{$SYSTEM.FUZZYTIME.MAX})=0'
               name: 'System time is out of sync'
-              status: DISABLED
               priority: WARNING
         - uuid: 158d775c33f841dfb37d042392c1f15f
           name: 'S4 Server Driver PCI Express'
@@ -122,8 +592,12 @@ zabbix_export:
           type: SNMP_AGENT
           snmp_oid: 1.3.6.1.4.1.29932.1.30.0
           key: s4server.fan1
-          units: rps
+          units: rpm
           description: 'The Fan 1 rotating speed (rps)'
+          preprocessing:
+            - type: MULTIPLIER
+              parameters:
+                - '60'
           tags:
             - tag: component
               value: health
@@ -136,8 +610,12 @@ zabbix_export:
           type: SNMP_AGENT
           snmp_oid: 1.3.6.1.4.1.29932.1.31.0
           key: s4server.fan2
-          units: rps
+          units: rpm
           description: 'The Fan 2 rotating speed (rps)'
+          preprocessing:
+            - type: MULTIPLIER
+              parameters:
+                - '60'
           tags:
             - tag: component
               value: health
@@ -357,10 +835,63 @@ zabbix_export:
           tags:
             - tag: component
               value: Sound4
+      tags:
+        - tag: class
+          value: hardware
+        - tag: target
+          value: 'FM/HD Processing'
       macros:
         - macro: '{$SYSTEM.FUZZYTIME.MAX}'
           value: '60'
+        - macro: '{$UTCOFFSET}'
+          value: '3'
       valuemaps:
+        - uuid: 5025d3ac1a29441a8518a3924c9f8efd
+          name: 'Curent input'
+          mappings:
+            - value: '0'
+              newvalue: mix
+            - value: '1'
+              newvalue: analogic
+            - value: '2'
+              newvalue: digital
+            - value: '3'
+              newvalue: pci
+            - value: '4'
+              newvalue: ip
+        - uuid: e2ddec90f7a44276be5e85b4b0c6f5e8
+          name: 'DHCP mode'
+          mappings:
+            - value: '0'
+              newvalue: disable
+            - value: '1'
+              newvalue: enable
+        - uuid: 67ab269eb78e481981b0e88619ff9dc5
+          name: 'Ethernet IP connection status'
+          mappings:
+            - value: '0'
+              newvalue: 'off'
+            - value: '1'
+              newvalue: unplug
+            - value: '2'
+              newvalue: badconfig
+            - value: '3'
+              newvalue: fixed
+            - value: '4'
+              newvalue: dhcperror
+            - value: '5'
+              newvalue: dhcp
+            - value: '6'
+              newvalue: conflict
+            - value: '7'
+              newvalue: hostnameconflict
+        - uuid: 5911d9a23f5e45d7a20d508162086505
+          name: 'Ethernet link status'
+          mappings:
+            - value: '0'
+              newvalue: nolink
+            - value: '1'
+              newvalue: linkok
         - uuid: 74513318137542a2b6dac5486c9d86e0
           name: 'Global state'
           mappings:
@@ -380,6 +911,13 @@ zabbix_export:
               newvalue: nodata
             - value: '7'
               newvalue: upgrading
+        - uuid: e7f45826d0ed4a97a57a6be65c45d10f
+          name: 'Input status'
+          mappings:
+            - value: '0'
+              newvalue: invalid
+            - value: '1'
+              newvalue: valid
         - uuid: b5f37d1a276e40c5ac31ed65f474a72f
           name: 'NTP Status'
           mappings:
@@ -394,6 +932,25 @@ zabbix_export:
               newvalue: invalid
             - value: '1'
               newvalue: valid
+        - uuid: 338337d1b21d4354a9dccf1f3e20b514
+          name: 'The card''s global state'
+          mappings:
+            - value: '0'
+              newvalue: unknown
+            - value: '1'
+              newvalue: new
+            - value: '2'
+              newvalue: starting
+            - value: '3'
+              newvalue: loading
+            - value: '4'
+              newvalue: ok
+            - value: '5'
+              newvalue: broken
+            - value: '6'
+              newvalue: nodata
+            - value: '7'
+              newvalue: upgrading
         - uuid: cc325d96a5e04283bc8bf2829bfde1f8
           name: 'The Internal Power Supply status'
           mappings:
